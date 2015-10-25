@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :users, only: [:create, :show]
+  resources :sessions, only: [:create]
   root 'welcome#index'
 
   # Example of regular route:
