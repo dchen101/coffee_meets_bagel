@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show] do
+    resources :photos, only: [:create, :show]
+  end
   resources :sessions, only: [:create]
   root 'welcome#index'
 

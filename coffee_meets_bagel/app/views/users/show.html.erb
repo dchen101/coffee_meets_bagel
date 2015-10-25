@@ -1,1 +1,5 @@
 <%= @user.username %>
+<%= form_for @photo, url: user_photos_path(@user), html:{multipart: true} do |f| %>
+  <%= f.file_field :image %>
+  <%= f.submit "Upload Image" %>
+<% end %>

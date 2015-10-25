@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.where(username: params[:username]).first
     if user
       if user.authenticate(params[:password])
-        session[:username]=user.username
+        session[:user_id] = user.id
         redirect_to user
       end
     else
