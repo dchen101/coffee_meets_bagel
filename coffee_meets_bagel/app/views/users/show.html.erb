@@ -3,3 +3,7 @@
   <%= f.file_field :image %>
   <%= f.submit "Upload Image" %>
 <% end %>
+
+<% @user.photos.each do |photo| %>
+  <%= image_tag photo.image.url(:medium) %>
+<%end%>
