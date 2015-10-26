@@ -1,4 +1,8 @@
 <div class="photo">
   <%= image_tag photo.image.url(:medium) %>
-  <%= button_to "Like", like_path(photo)%>
+  <% if photo.liked?(session[:user_id]) %>
+    <%= button_to "Dislike", dislike_path(photo), method: 'delete' %>
+  <% else %>
+    <%= button_to "Like", like_path(photo)%>
+  <% end %>
 </div>

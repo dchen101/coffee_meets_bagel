@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show] do
     resources :photos, only: [:create, :show]
   end
-  post "/photos/:id/like" => 'photos#like', as: :like
+  post "/photos/:id/like" => "photos#like", as: :like
+  delete "/photos/:id/dislike" => "photos#dislike", as: :dislike
   resources :sessions, only: [:create]
   root 'welcome#index'
 

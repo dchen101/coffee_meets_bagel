@@ -18,4 +18,10 @@ class PhotosController < ApplicationController
     redirect_to user_path(session[:user_id])
   end
 
+  def dislike
+    like = Like.where(photo_id: params[:id], user_id: session[:user_id]).first
+    like.destroy
+    redirect_to user_path(session[:user_id])
+  end
+
 end
