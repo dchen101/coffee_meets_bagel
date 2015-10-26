@@ -1,9 +1,6 @@
 class PhotosController < ApplicationController
 
   def create
-    p '*' * 100
-    p params[:image]
-    p '*' * 100
     photo = Photo.new(user_id: params[:user_id], image: params[:photo][:image])
     if photo.save
       redirect_to user_photo_path(photo.user_id, photo.id)
@@ -15,4 +12,10 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
   end
+
+  def like
+    Like.create(photo_id: params[:id], user_id: session[:user_id])
+    redirect_to user_path(session[:user_id])
+  end
+
 end

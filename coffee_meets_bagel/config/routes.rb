@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show] do
     resources :photos, only: [:create, :show]
   end
+  post "/photos/:id/like" => 'photos#like', as: :like
   resources :sessions, only: [:create]
   root 'welcome#index'
 
